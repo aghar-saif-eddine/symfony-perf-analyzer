@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+$autoloadFiles = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php'
+];
+
+$autoloaderFound = false;
+foreach ($autoloadFiles as $file) {
+    if (file_exists($file)) {
+        require $file;
+        $autoloaderFound = true;
+        break;
+    }
+}
+
+if (!$autoloaderFound) {
+    die("🚨 Error: vendor/autoload.php not found. Please run 'composer install'.\n");
+}
+
+use Symfony\Component\Console\Application;
+use Aghar\SymfonyPerfAnalyzer\Command\AnalyzeCommand;
+
+$application = new Application('Symfony Performance Analyzer', '1.0.0');
+
+$application->addCommand(new AnalyzeCommand());
+
+$application->run();
