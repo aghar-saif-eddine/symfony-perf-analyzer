@@ -19,19 +19,19 @@ composer require --dev aghar/symfony-perf-analyzer
 ## 🚀 Usage
 Run the analyzer directly from your terminal at the root of your Symfony project:
 
-php vendor/bin/console analyze
+php vendor/bin/pref-analyzer analyze
 
 (By default, it will scan the current directory and display a beautiful console output with your performance score).
 
 ## 🔌 Custom Project Path
 You can specify a different Symfony project path as an argument:
 
-php vendor/bin/console analyze /path/to/your/symfony/project
+php vendor\bin\perf-analyzer analyze /path/to/your/symfony/project
 
 ## ⚙️ JSON Output (For CI/CD Pipelines)
 If you want to parse the output in an automated CI pipeline or send it to an external SaaS dashboard, use the JSON format:
 
-php vendor/bin/console analyze --format=json
+php vendor/bin/pref-analyzer analyze --format=json
 
 ## 🏗️ Extensible Architecture
 The analyzer is built with a clean, decoupled architecture making it easy to add new rules:
