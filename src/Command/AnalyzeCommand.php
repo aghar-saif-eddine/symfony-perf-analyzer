@@ -15,6 +15,9 @@ use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\EnvDebugRule;
 use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\NPlusOneRule;
 use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\NamingConventionRule;
 use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\SlowQueryProfilerRule;
+use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\LeftoverDebugRule;
+use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\MassiveHydrationRule;
+use Aghar\SymfonyPerfAnalyzer\Analyzer\Rules\TwigNPlusOneRule;
 
 use Aghar\SymfonyPerfAnalyzer\Formatter\ConsoleFormatter;
 use Aghar\SymfonyPerfAnalyzer\Formatter\JsonFormatter;
@@ -47,6 +50,9 @@ class AnalyzeCommand extends Command
         $runner->addRule(new NPlusOneRule());
         $runner->addRule(new NamingConventionRule());
         $runner->addRule(new SlowQueryProfilerRule());
+        $runner->addRule(new LeftoverDebugRule());
+        $runner->addRule(new MassiveHydrationRule());
+        $runner->addRule(new TwigNPlusOneRule());
 
         $report = $runner->run($projectPath);
 
