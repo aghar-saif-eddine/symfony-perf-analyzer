@@ -29,5 +29,5 @@ jobs:
       - name: Install dependencies
         run: composer update --prefer-dist --no-progress
 
-      - name: Test the Analyzer (Dogfooding)
+      - name: Test the Analyzer
         run: php bin/perf-analyzer analyze src --format=console
